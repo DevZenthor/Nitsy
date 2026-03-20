@@ -3,48 +3,41 @@ import { useState, useEffect, useRef } from "react";
 export default function App() {
   const [showTitle, setShowTitle] = useState(false);
   const [locked, setLocked] = useState(true);
-  const nextSectionRef = useRef(null);
 
-  // ⏱️ Apparition du titre
+  const jungleRef = useRef(null);
+
   useEffect(() => {
     const timer = setTimeout(() => setShowTitle(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  // 🔒 Verrouillage total du scroll
+  // Bloque le scroll au début
   useEffect(() => {
     const body = document.body;
 
     if (locked) {
       body.style.position = "fixed";
       body.style.top = "0";
-      body.style.left = "0";
-      body.style.right = "0";
       body.style.width = "100%";
     } else {
       body.style.position = "";
       body.style.top = "";
-      body.style.left = "";
-      body.style.right = "";
       body.style.width = "";
     }
   }, [locked]);
 
-  // 🔓 Entrer dans le site
   const enterSite = () => {
     setLocked(false);
 
     setTimeout(() => {
-      nextSectionRef.current.scrollIntoView({
-        behavior: "smooth",
-      });
+      jungleRef.current.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
   return (
     <div>
 
-      {/* ===== HERO VIDEO ===== */}
+      {/* ========= HERO VIDEO ========= */}
       <section className="hero">
 
         <video
@@ -53,50 +46,60 @@ export default function App() {
           muted
           loop
           playsInline
-          preload="auto"
           className="hero-video"
         />
 
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
-
           {showTitle && (
             <>
-              <h1 className="hero-title">
-                Portfolio de Nitsy
-              </h1>
+              <h1 className="hero-title">Portfolio de Nitsy</h1>
 
-              <button
-                onClick={enterSite}
-                className="hero-button"
-              >
+              <button onClick={enterSite} className="hero-button">
                 Découvrir
               </button>
             </>
           )}
-
         </div>
       </section>
 
-      {/* ===== SECTION NUIT ===== */}
-      <section ref={nextSectionRef} className="night-section">
+      {/* ========= SECTION JUNGLE ========= */}
+      <section ref={jungleRef} className="jungle-section">
 
-        {/* ✨ Lucioles */}
-        {Array.from({ length: 30 }).map((_, i) => (
+        {/* Lianes */}
+        <img src="/brodure.png" alt="" className="vine-top" />
+
+        {/* ⭐ Lucioles seulement ici */}
+        {Array.from({ length: 60 }).map((_, i) => (
           <div
             key={i}
             className="firefly"
             style={{
               left: Math.random() * 100 + "%",
               top: Math.random() * 100 + "%",
-              animationDuration: 8 + Math.random() * 10 + "s",
+              animationDuration: 10 + Math.random() * 12 + "s",
             }}
           />
         ))}
 
-        <div className="night-content">
-          <h2>Bienvenue sur mon portfolio</h2>
+        {/* Carte profil */}
+        <div className="profile-card">
+
+          <div className="profile-glow"></div>
+
+          <img
+            src="/nitsy.jpg"
+            alt="Nitsy"
+            className="profile-image"
+          />
+
+          <h2 className="profile-name">Nitsy</h2>
+
+          <p className="profile-text">
+            Graphiste dans la création de miniatures et posters.
+          </p>
+
         </div>
 
       </section>

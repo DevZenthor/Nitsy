@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🔥 Reset */
+/* ================= RESET ================= */
+
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: hidden;
+  background: #020617;
+  font-family: system-ui, sans-serif;
 }
 
-/* ===== HERO ===== */
+/* ================= HERO VIDEO ================= */
 
 .hero {
   position: relative;
@@ -31,15 +35,17 @@ html, body, #root {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.9),
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.4)
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.5)
   );
+  z-index: 1;
 }
+
+/* Contenu hero */
 
 .hero-content {
   position: relative;
-  z-index: 10;
+  z-index: 3;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -47,53 +53,63 @@ html, body, #root {
   justify-content: center;
 }
 
+/* Titre */
+
 .hero-title {
   color: white;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  text-align: center;
-  text-shadow: 0 0 20px rgba(0,0,0,0.9);
+  text-shadow: 0 0 20px rgba(0,0,0,0.8);
 }
 
-/* Bouton moderne minimal */
+/* Bouton */
+
 .hero-button {
   padding: 14px 40px;
-  font-size: 1rem;
   border-radius: 999px;
-  background: white;
-  color: black;
+  background: #4ade80;
+  color: #022c22;
+  font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: 0.25s;
 }
 
 .hero-button:hover {
-  background: #4ade80;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  background: #22c55e;
 }
 
-/* ===== SECTION NUIT ===== */
+/* ================= SECTION JUNGLE ================= */
 
-.night-section {
+.jungle-section {
   position: relative;
   min-height: 100vh;
-  background: radial-gradient(circle at center, #0b1d14 0%, #020617 100%);
-  overflow: hidden;
-}
 
-.night-content {
-  position: relative;
-  z-index: 2;
-  height: 100vh;
+  background:
+    radial-gradient(circle at center, #0b1d14 0%, #020617 100%);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 2rem;
+
+  overflow: hidden;
 }
 
-/* ===== LUCIOLES ===== */
+/* Lianes en haut */
+
+.vine-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ================= LUCIOLLES ================= */
 
 .firefly {
   position: absolute;
@@ -101,19 +117,99 @@ html, body, #root {
   height: 6px;
   background: #fde047;
   border-radius: 50%;
+
   box-shadow:
-    0 0 10px #fde047,
-    0 0 20px #fde047,
-    0 0 30px rgba(255,255,150,0.8);
+    0 0 8px #fde047,
+    0 0 18px #fde047,
+    0 0 30px rgba(255,255,150,0.6);
+
   animation: floatFirefly linear infinite;
-  opacity: 0.8;
+
+  opacity: 0.9;
+  z-index: 2;
 }
 
 @keyframes floatFirefly {
-  from {
-    transform: translateY(0) translateX(0);
-  }
-  to {
-    transform: translateY(-120vh) translateX(40px);
-  }
+  from { transform: translateY(0) translateX(0); }
+  to   { transform: translateY(-120vh) translateX(50px); }
+}
+
+/* ================= PROFIL CARD ================= */
+
+.profile-card {
+  position: relative;
+  z-index: 3;
+
+  text-align: center;
+
+  width: 420px;
+  padding: 60px 40px;
+
+  border-radius: 26px;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.8);
+}
+
+/* Glow derrière */
+
+.profile-glow {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  background:
+    radial-gradient(circle, rgba(34,197,94,0.6), transparent 70%);
+
+  filter: blur(120px);
+
+  top: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: -1;
+}
+
+/* Photo */
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 4px solid rgba(255,255,255,0.5);
+
+  box-shadow:
+    0 0 35px rgba(34,197,94,0.7);
+
+  transition: transform 0.3s;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+/* Nom */
+
+.profile-name {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-top: 24px;
+  color: white;
+}
+
+/* Description */
+
+.profile-text {
+  margin-top: 14px;
+  font-size: 1.15rem;
+  color: #d1fae5;
 }
