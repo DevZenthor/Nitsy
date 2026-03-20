@@ -146,9 +146,9 @@ export default function App() {
 
         <div className="pricing-cards">
 
-          <PriceCard title="Miniature" price="6€ — 8€" img="/minia.jpg" />
-          <PriceCard title="Poster" price="5€ — 10€" img="/poster.jpg" />
-          <PriceCard title="Logo" price="3€ — 6€" img="/logo.jpg" />
+          <PriceCard title="Miniature" price="6€ — 8€" img="/minia.jpeg" />
+          <PriceCard title="Poster" price="5€ — 10€" img="/poster.jpeg" />
+          <PriceCard title="Logo" price="3€ — 6€" img="/logo.jpeg" />
 
         </div>
 
