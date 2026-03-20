@@ -322,3 +322,23 @@ body {
   background: #4752c4;
   transform: translateY(-2px);
 }
+
+/* ===== DÉSACTIVER SÉLECTION + CURSEUR TEXTE ===== */
+
+* {
+  user-select: none;          /* Standard */
+  -webkit-user-select: none;  /* Chrome / Safari */
+  -ms-user-select: none;      /* Edge ancien */
+}
+
+/* Curseur normal partout */
+
+body {
+  cursor: default;
+}
+
+/* Empêche le curseur texte */
+
+p, h1, h2, h3, h4, h5, h6, span, div, a, button {
+  cursor: default;
+}
