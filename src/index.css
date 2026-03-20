@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🔥 Reset */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.4)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0,0,0,0.9);
+}
+
+/* Bouton moderne minimal */
+.hero-button {
+  padding: 14px 40px;
+  font-size: 1rem;
+  border-radius: 999px;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hero-button:hover {
+  background: #4ade80;
+  transform: translateY(-2px);
+}
+
+/* ===== SECTION NUIT ===== */
+
+.night-section {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #0b1d14 0%, #020617 100%);
+  overflow: hidden;
+}
+
+.night-content {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+}
+
+/* ===== LUCIOLES ===== */
+
+.firefly {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fde047;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px #fde047,
+    0 0 20px #fde047,
+    0 0 30px rgba(255,255,150,0.8);
+  animation: floatFirefly linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatFirefly {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(-120vh) translateX(40px);
+  }
+}
