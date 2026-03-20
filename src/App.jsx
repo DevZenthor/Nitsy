@@ -4,8 +4,11 @@ import { FaDiscord, FaXTwitter } from "react-icons/fa6";
 export default function App() {
   const [showTitle, setShowTitle] = useState(false);
   const [locked, setLocked] = useState(true);
-  const profileRef = useRef(null);
 
+  const profileRef = useRef(null);
+  const pricingRef = useRef(null);
+
+  // Apparition titre
   useEffect(() => {
     const timer = setTimeout(() => setShowTitle(true), 3000);
     return () => clearTimeout(timer);
@@ -14,6 +17,7 @@ export default function App() {
   // Bloque scroll au début
   useEffect(() => {
     const body = document.body;
+
     if (locked) {
       body.style.position = "fixed";
       body.style.top = "0";
@@ -36,12 +40,47 @@ export default function App() {
   const handleMouseMove = (e) => {
     const x = (e.clientX / window.innerWidth) * 100;
     const y = (e.clientY / window.innerHeight) * 100;
+
     document.documentElement.style.setProperty("--x", `${x}%`);
     document.documentElement.style.setProperty("--y", `${y}%`);
   };
 
   return (
     <div onMouseMove={handleMouseMove}>
+
+      {/* ===== NAVBAR (PAS SUR LA VIDÉO) ===== */}
+      {!locked && (
+        <nav className="navbar">
+
+          <div className="nav-logo">Nitsy</div>
+
+          <div className="nav-links">
+
+            <button onClick={() =>
+              profileRef.current.scrollIntoView({ behavior: "smooth" })
+            }>
+              Profil
+            </button>
+
+            <button onClick={() =>
+              pricingRef.current.scrollIntoView({ behavior: "smooth" })
+            }>
+              Tarifs
+            </button>
+
+            <a
+              href="https://discord.gg/GpfkxSUznf"
+              target="_blank"
+              rel="noreferrer"
+              className="nav-discord"
+            >
+              Discord
+            </a>
+
+          </div>
+
+        </nav>
+      )}
 
       {/* ========= HERO VIDEO ========= */}
       <section className="hero">
@@ -60,6 +99,7 @@ export default function App() {
           {showTitle && (
             <>
               <h1 className="hero-title">Portfolio de Nitsy</h1>
+
               <button onClick={enterSite} className="hero-button">
                 Découvrir
               </button>
@@ -69,20 +109,7 @@ export default function App() {
       </section>
 
       {/* ========= PROFIL ========= */}
-      <section ref={profileRef} className="profile-section firefly-area">
-
-        {/* 🌟 LUCIOLLES UNIQUEMENT ICI */}
-        {Array.from({ length: 50 }).map((_, i) => (
-          <div
-            key={i}
-            className="firefly"
-            style={{
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
-              animationDuration: 10 + Math.random() * 12 + "s",
-            }}
-          />
-        ))}
+      <section ref={profileRef} className="profile-section">
 
         <div className="profile-card">
 
@@ -94,7 +121,6 @@ export default function App() {
             Graphiste dans la création de miniatures et posters.
           </p>
 
-          {/* RÉSEAUX */}
           <div className="social-section">
 
             <a href="https://x.com/NitsyFnbr" target="_blank" rel="noreferrer" className="social-btn x">
@@ -114,20 +140,7 @@ export default function App() {
       </section>
 
       {/* ========= TARIFS ========= */}
-      <section className="pricing-section firefly-area">
-
-        {/* 🌟 LUCIOLLES */}
-        {Array.from({ length: 40 }).map((_, i) => (
-          <div
-            key={"p" + i}
-            className="firefly"
-            style={{
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
-              animationDuration: 12 + Math.random() * 10 + "s",
-            }}
-          />
-        ))}
+      <section ref={pricingRef} className="pricing-section">
 
         <h2 className="pricing-title">Tarifs</h2>
 
@@ -145,10 +158,13 @@ export default function App() {
   );
 }
 
+// ===== Carte Tarif =====
 function PriceCard({ title, price, img }) {
   return (
     <div className="price-card">
+
       <img src={img} alt={title} className="price-image" />
+
       <h3>{title}</h3>
       <p>{price}</p>
 
@@ -160,6 +176,7 @@ function PriceCard({ title, price, img }) {
       >
         Commander
       </a>
+
     </div>
   );
 }
