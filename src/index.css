@@ -2,23 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ================= RESET ================= */
+/* ===== RESET ===== */
 
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow-x: hidden;
   background: #020617;
-  font-family: system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* ================= HERO VIDEO ================= */
+/* ===== HERO ===== */
 
 .hero {
   position: relative;
   height: 100vh;
-  width: 100%;
   overflow: hidden;
 }
 
@@ -38,32 +36,24 @@ html, body, #root {
     rgba(0,0,0,0.95),
     rgba(0,0,0,0.5)
   );
-  z-index: 1;
 }
-
-/* Contenu hero */
 
 .hero-content {
   position: relative;
   z-index: 3;
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
-
-/* Titre */
 
 .hero-title {
   color: white;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  text-shadow: 0 0 20px rgba(0,0,0,0.8);
 }
-
-/* Bouton */
 
 .hero-button {
   padding: 14px 40px;
@@ -81,35 +71,28 @@ html, body, #root {
   background: #22c55e;
 }
 
-/* ================= SECTION JUNGLE ================= */
+/* ===== JUNGLE ===== */
 
 .jungle-section {
   position: relative;
   min-height: 100vh;
-
-  background:
-    radial-gradient(circle at center, #0b1d14 0%, #020617 100%);
-
+  background: radial-gradient(circle at center, #0b1d14 0%, #020617 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
 }
-
-/* Lianes en haut */
 
 .vine-top {
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
   opacity: 0.9;
   pointer-events: none;
   z-index: 1;
 }
 
-/* ================= LUCIOLLES ================= */
+/* ===== LUCIOLLES ===== */
 
 .firefly {
   position: absolute;
@@ -134,17 +117,14 @@ html, body, #root {
   to   { transform: translateY(-120vh) translateX(50px); }
 }
 
-/* ================= PROFIL CARD ================= */
+/* ===== PROFIL ===== */
 
 .profile-card {
   position: relative;
   z-index: 3;
-
   text-align: center;
-
   width: 420px;
   padding: 60px 40px;
-
   border-radius: 26px;
 
   background: rgba(255,255,255,0.06);
@@ -156,48 +136,30 @@ html, body, #root {
     0 40px 120px rgba(0,0,0,0.8);
 }
 
-/* Glow derrière */
-
 .profile-glow {
   position: absolute;
-
   width: 420px;
   height: 420px;
-
   background:
     radial-gradient(circle, rgba(34,197,94,0.6), transparent 70%);
-
   filter: blur(120px);
-
   top: -140px;
   left: 50%;
   transform: translateX(-50%);
-
   z-index: -1;
 }
-
-/* Photo */
 
 .profile-image {
   width: 180px;
   height: 180px;
   object-fit: cover;
-
   border-radius: 50%;
 
   border: 4px solid rgba(255,255,255,0.5);
 
   box-shadow:
     0 0 35px rgba(34,197,94,0.7);
-
-  transition: transform 0.3s;
 }
-
-.profile-image:hover {
-  transform: scale(1.05);
-}
-
-/* Nom */
 
 .profile-name {
   font-size: 2.4rem;
@@ -206,10 +168,57 @@ html, body, #root {
   color: white;
 }
 
-/* Description */
-
 .profile-text {
   margin-top: 14px;
   font-size: 1.15rem;
   color: #d1fae5;
+}
+
+/* ===== RÉSEAUX ===== */
+
+.social-section {
+  margin-top: 40px;
+}
+
+.social-title {
+  color: #d1fae5;
+  margin-bottom: 18px;
+  font-size: 1.2rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 2rem;
+  color: white;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  transition: all 0.25s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-6px) scale(1.1);
+
+  background: #4ade80;
+  color: #022c22;
+
+  box-shadow:
+    0 0 20px rgba(74,222,128,0.8);
 }

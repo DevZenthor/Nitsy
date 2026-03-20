@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { FaDiscord, FaXTwitter } from "react-icons/fa6";
 
 export default function App() {
   const [showTitle, setShowTitle] = useState(false);
@@ -11,7 +12,7 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Bloque le scroll au début
+  // Bloque scroll au début
   useEffect(() => {
     const body = document.body;
 
@@ -67,10 +68,10 @@ export default function App() {
       {/* ========= SECTION JUNGLE ========= */}
       <section ref={jungleRef} className="jungle-section">
 
-        {/* Lianes */}
+        {/* Lianes décoratives */}
         <img src="/brodure.png" alt="" className="vine-top" />
 
-        {/* ⭐ Lucioles seulement ici */}
+        {/* Lucioles */}
         {Array.from({ length: 60 }).map((_, i) => (
           <div
             key={i}
@@ -83,7 +84,7 @@ export default function App() {
           />
         ))}
 
-        {/* Carte profil */}
+        {/* PROFIL */}
         <div className="profile-card">
 
           <div className="profile-glow"></div>
@@ -99,6 +100,35 @@ export default function App() {
           <p className="profile-text">
             Graphiste dans la création de miniatures et posters.
           </p>
+
+          {/* ===== RÉSEAUX ===== */}
+          <div className="social-section">
+
+            <h3 className="social-title">Réseaux</h3>
+
+            <div className="social-icons">
+
+              <a
+                href="https://x.com/NitsyFnbr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <FaXTwitter />
+              </a>
+
+              <a
+                href="https://discord.gg/GpfkxSUznf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <FaDiscord />
+              </a>
+
+            </div>
+
+          </div>
 
         </div>
 
