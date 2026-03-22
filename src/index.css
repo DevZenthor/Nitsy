@@ -443,3 +443,132 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 0 25px rgba(34,197,94,0.45);
 }
+
+/* ===== BLOQUER SÉLECTION TEXTE ===== */
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Curseur normal (pas texte) */
+
+body {
+  cursor: default;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+
+  .navbar {
+    height: 60px;
+    padding: 0 18px;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links button {
+    font-size: 0.9rem;
+  }
+
+  .nav-discord {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  /* HERO */
+
+  .hero-title {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .hero-button {
+    padding: 12px 28px;
+  }
+
+  /* PROFIL */
+
+  .profile-section {
+    padding-top: 90px;
+  }
+
+  .profile-card {
+    padding: 28px 20px;
+    width: 90%;
+  }
+
+  .profile-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .profile-name {
+    font-size: 1.8rem;
+  }
+
+  .profile-text {
+    font-size: 0.95rem;
+  }
+
+  /* RÉSEAUX */
+
+  .social-section {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .social-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* GALERIE */
+
+  .gallery-section {
+    padding: 90px 20px;
+  }
+
+  .gallery-title {
+    font-size: 2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* TARIFS */
+
+  .pricing-title {
+    font-size: 2rem;
+  }
+
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .price-card {
+    width: 90%;
+  }
+
+  /* FOOTER */
+
+  .footer-content {
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
+  }
+
+}
