@@ -572,3 +572,58 @@ body {
   }
 
 }
+
+/* ===== CLIENTS SECTION ===== */
+
+.clients-section {
+  padding: 120px 40px;
+  text-align: center;
+}
+
+.clients-title {
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+/* Grille horizontale responsive */
+
+.clients-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Carte client */
+
+.client-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.25s;
+}
+
+.client-card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 3px solid rgba(34,197,94,0.6);
+  box-shadow: 0 0 18px rgba(34,197,94,0.5);
+
+  transition: 0.3s;
+}
+
+.client-card p {
+  margin-top: 10px;
+  color: #d1fae5;
+  font-weight: 600;
+}
+
+/* Hover stylé */
+
+.client-card:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 28px rgba(34,197,94,0.9);
+}
