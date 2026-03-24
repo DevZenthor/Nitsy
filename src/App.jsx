@@ -12,13 +12,13 @@ export default function App() {
   const pricingRef = useRef(null);
   const bgVideoRef = useRef(null);
 
-  // Apparition titre
+ 
   useEffect(() => {
     const timer = setTimeout(() => setShowTitle(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  // Bloque scroll
+ 
   useEffect(() => {
     const body = document.body;
 
@@ -40,7 +40,6 @@ export default function App() {
     }, 100);
   };
 
-  // Effet vidéo souris
   const handleMouseMove = (e) => {
     const mx = e.clientX / window.innerWidth - 0.5;
     const my = e.clientY / window.innerHeight - 0.5;
@@ -82,7 +81,7 @@ export default function App() {
               galleryRef.current.scrollIntoView({ behavior: "smooth" })
             }>Galerie</button>
 
-            {/* ✅ BOUTON CLIENTS */}
+            {/* BOUTON CLIENTS */}
             <button onClick={() =>
               clientsRef.current.scrollIntoView({ behavior: "smooth" })
             }>Clients</button>
@@ -160,7 +159,7 @@ export default function App() {
         <Gallery />
       </section>
 
-      {/* ================= CLIENTS ================= */}
+      {/* CLIENTS  */}
       <section ref={clientsRef} className="clients-section">
 
         <h2 className="clients-title">Clients</h2>
@@ -210,9 +209,9 @@ export default function App() {
   );
 }
 
-//////////////////////////////////////////////////////////
-// ================= CLIENTS COMPONENT =================
-//////////////////////////////////////////////////////////
+
+//================= CLIENTS COMPONENT =================//
+
 
 function ClientsSection() {
 
@@ -220,7 +219,7 @@ function ClientsSection() {
     { name: "Jonax", img: "/jonax.jpg" },
     { name: "One Prodige", img: "/1P.jpg" },
     { name: "Wycker", img: "/wycker.jpg" }
-   /* { name: "Hedra", img: "/hedra.jpg" }*/
+   /{ name: "Hedra", img: "/hedra.jpg" }
   ];
 
   return (
@@ -237,9 +236,9 @@ function ClientsSection() {
   );
 }
 
-//////////////////////////////////////////////////////////
-// ================= GALERIE =================
-//////////////////////////////////////////////////////////
+
+// ================= GALERIE =================//
+
 
 function Gallery() {
 
@@ -287,9 +286,9 @@ function Gallery() {
   );
 }
 
-//////////////////////////////////////////////////////////
-// ================= TARIFS =================
-//////////////////////////////////////////////////////////
+
+// ================= TARIFS =================//
+
 
 function PriceCard({ title, price, img }) {
   return (
