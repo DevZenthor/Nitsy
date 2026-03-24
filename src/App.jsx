@@ -218,8 +218,8 @@ function ClientsSection() {
   const clients = [
     { name: "Jonax", img: "/jonax.jpg" },
     { name: "One Prodige", img: "/1P.jpg" },
-    { name: "Wycker", img: "/wycker.jpg" }
-   /{ name: "Hedra", img: "/hedra.jpg" }
+    { name: "Wycker", img: "/wycker.jpg" },
+   { name: "Hedra", img: "/hedra.jpg" }
   ];
 
   return (
